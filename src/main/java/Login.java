@@ -1,15 +1,10 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 
 public class Login extends Application{
 
@@ -32,10 +27,8 @@ public class Login extends Application{
             public void handle(ActionEvent ae) {
                 System.out.println(" login");
 
-                MainFormController form = new MainFormController();
+                MainFormViewer form = new MainFormViewer();
                 form.createMainForm();
-
-
 
             }
         });
