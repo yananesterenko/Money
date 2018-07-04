@@ -1,4 +1,6 @@
-import javafx.collections.ObservableList;
+package views;
+
+import common.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
@@ -8,6 +10,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import views.CreateMenu;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MainFormViewer {
 
@@ -20,23 +29,26 @@ public class MainFormViewer {
 
         TabPane tabbedPane = new TabPane();
         tabbedPane.setMinWidth(500);
-        Tab tab1 = new CreateTabs().createTabs("Cash");
         StackPane tabB_stack = new StackPane();
-
-        CashFlowTableViewer cashFlowTableViewer = new CashFlowTableViewer();
-        TableView tableInput = cashFlowTableViewer.createTable();
-        CashFlowTableController contr = new CashFlowTableController();
-        ObservableList cashFlow= contr.buildData();
-        tableInput.setItems(cashFlow);
+        TableView tableInput = CreateTable.buildTable();
         tabB_stack.getChildren().addAll(tableInput);
-        tab1.setContent(tabB_stack);
         /*final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
         vbox.getChildren().addAll(tableInput);*/
+        ArrayList listPouches = new ArrayList();
+        listPouches.add("Cash");
+        listPouches.add("Bank card");
+        listPouches.add("Bank card2");
 
-        Tab tab2 = new CreateTabs().createTabs("Bank card");
-        tabbedPane.getTabs().addAll(tab1, tab2);
+        for (int i=0; i< listPouches.size();i++){
+
+            String elemPouch = listPouches.get(i).toString();
+            Tab tab = new CreateTabs().createTabs(elemPouch);
+            tab.setContent(tabB_stack);
+            tabbedPane.getTabs().add(tab);
+
+        }
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(mb);
         borderPane.setCenter(tabbedPane);
@@ -46,7 +58,9 @@ public class MainFormViewer {
         stMain.setScene(myScene);
         stMain.show();
 
-        }
+
+
+    }
 
 
 }
