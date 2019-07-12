@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class CashFlowData_Dao {
 
-    public ArrayList<CashFlowData> getOperation(){
+    public ArrayList<CashFlowOperation> getOperation(){
         Connection connection = new JDBCPostgreSQLE().getConnection();
         Statement stmt = null;
         ResultSet rs = null;
-        ArrayList<CashFlowData> result = new ArrayList<CashFlowData>();
+        ArrayList<CashFlowOperation> result = new ArrayList<CashFlowOperation>();
         try{
             connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             connection.setAutoCommit(false);
@@ -26,7 +26,7 @@ public class CashFlowData_Dao {
                 String type = rs.getString("type_operation");
                 String cashFlow = rs.getString("cashFlowItem_id");
                 Integer amount = rs.getInt("amount");
-                CashFlowData cfd = new CashFlowData();
+                CashFlowOperation cfd = new CashFlowOperation();
                 cfd.setDateTransaction(date);
                 cfd.setId(id);
                 cfd.setCashFlowItem(cashFlow);

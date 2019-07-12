@@ -1,4 +1,4 @@
-package common;
+package controllers;
 
 import controllers.CashFlowTableController;
 import javafx.collections.ObservableList;

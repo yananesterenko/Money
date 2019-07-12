@@ -1,4 +1,4 @@
-package common;
+package controllers;
 
 import javafx.scene.control.Tab;
 

@@ -1,6 +1,6 @@
 package common;
 
-public class CashFlowData {
+public class CashFlowOperation {
         private String dateTransaction;
         private String cashFlowItem;
         private Integer id;

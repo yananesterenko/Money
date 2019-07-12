@@ -1,6 +1,7 @@
 package views;
 
-import common.*;
+import controllers.CreateTable;
+import controllers.CreateTabs;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
@@ -10,12 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import views.CreateMenu;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class MainFormViewer {
@@ -24,7 +20,7 @@ public class MainFormViewer {
         Stage stMain = new Stage();
         stMain.setTitle("Main form");
         stMain.setMinWidth(500);
-        CreateMenu mainMenu = new CreateMenu();
+        MainMenu mainMenu = new MainMenu();
         MenuBar mb = mainMenu.createMainMenue();
 
         TabPane tabbedPane = new TabPane();
